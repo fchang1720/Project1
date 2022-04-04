@@ -1,10 +1,12 @@
-alert("hello");
-var url = "https://api.seatgeek.com/2/events?lat=42.3600825&lon=-71.0588801&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Host": "seatgeek-seatgeekcom.p.rapidapi.com",
+    "X-RapidAPI-Key": "91391145a8msh9f7bd0021971887p1809eajsnd21f71ef307e",
+  },
+};
 
-fetch(url)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data)
-    })
+fetch("https://seatgeek-seatgeekcom.p.rapidapi.com/taxonomies", options)
+  .then((response) => response.json())
+  .then((response) => console.log(response))
+  .catch((err) => console.error(err));
