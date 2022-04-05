@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sporting Event Finder</title>
     <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
@@ -27,23 +32,27 @@
       <h5>Welcome banner</h5>
       <p>Hi this is our website.</p>
     </div>
-    <main class="col s12 col m8 col l12">
-
+    <main class="col s12 col m12 col l12">
       <div class="row">
         <form class="col s12">
           <div class="row">
-            <div class="input-field col s12 col m12 col l6 city-input">
+            <div class="input-field col s12 col m12 col l7 city-input">
               <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <label for="textarea1">enter a city</label>
+              <label for="textarea1">
+                please enter a city<i class="material-icons"
+                  >location_city</i
+                ></label
+              >
             </div>
           </div>
         </form>
         <input
           type="date"
-          class="datepicker col s12 col m12 col l6 date-input"
+          class="datepicker col s12 col m12 col l7 date-input"
         />
-        <a class="waves-effect waves-light btn " id="submit-btn">Find a Game!</a>
-        
+      </div>
+      <div class="row">
+        <a class="waves-effect waves-light btn" id="submit-btn">Find a Game!</a>
       </div>
 
       <div class="row">
@@ -74,11 +83,17 @@
         </ul>
       </div>
     </main>
-    <div id="appguide" style="height: 200px; background-color: #71A2B6; color: #fff;">
+    <div
+      id="appguide"
+      style="height: 200px; background-color: #71a2b6; color: #fff"
+    >
       <h5>appguide</h5>
       <p>Hello</p>
     </div>
-    <div id="Aboutus" style="height: 200px; background-color: #7C8483; color: #fff;">
+    <div
+      id="Aboutus"
+      style="height: 200px; background-color: #7c8483; color: #fff"
+    >
       <h5>Aboutus</h5>
       <p>Hello</p>
     </div>
