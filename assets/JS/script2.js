@@ -2,6 +2,7 @@ alert("hello");
 var userInput = $("#textarea1");
 var searchList = [];
 var clientID = "MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
+var searchResults = $("event-results")
 var submitBtn = $("#submit-btn");
 
 // modify 
@@ -20,6 +21,44 @@ fetch(url)
         console.log(data)
     })
 
+}
+
+// Function that fetches weather information from past searches. Allows easy access to previous search results.
+function renderCities(){
+    searchList.innerHTML = "";
+
+    for (var j = 0; j < cityList.length; j++) {
+        var cityContent = cityList[j];
+
+        var li = document.createElement("button");
+        li.textContent = cityContent;
+        li.style.width = '100%';
+        li.style.marginBottom = '5px';
+        searchList.appendChild(li);
+    }
+    searchList.addEventListener("click", function(event){
+        event.preventDefault();
+        
+        var element= event.target;
+        if(element.matches("button") === true){
+            city = element.textContent;
+        
+            getWeather(city);
+            get5Forecast(city);
+            
+        }
+
+    });
+}
+
+// Function to save searched cities and display them
+function getCities(){
+    var cities = JSON.parse(localStorage.getItem("City Name"));
+  
+    if (cities !== null) {
+        cityList = cities;
+      }
+    renderCities();
 }
     // event listener for search button
 submitBtn.on("click", function (event) {
