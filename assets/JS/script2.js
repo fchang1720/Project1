@@ -4,7 +4,8 @@ alert("hello");
 // var url = "https://api.seatgeek.com/2/events?per_page=20&postal_code=55411&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
 // var url = "https://api.seatgeek.com/2/events?highest_price.lte=40&per_page=20&postal_code=55411&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
 
-var url = 'https://api.seatgeek.com/2/events?taxonomies.name=sports&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz'
+// var url = 'https://api.seatgeek.com/2/events?taxonomies.name=sports&datetime_utc=2022-04-12&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz'
+var url = 'https://api.seatgeek.com/2/events?per_page=30&taxonomies.name=sports&datetime_utc.gte=2022-04-05&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz'
 fetch(url)
     .then(function(response) {
         return response.json();
