@@ -21,8 +21,10 @@ fetch(url)
     .then(function (data) {
         console.log(data)
         console.log(data.events[0].performers[0].name)
-        var eventName = $("#zip");
-        
+        var eventName = $("#name");
+
+        eventResults.append(eventName);
+
 
 
     })
