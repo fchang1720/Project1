@@ -16,7 +16,17 @@ var apiKey = '&appid=8710c92cc91b2be9b69b111ac287d778';
 var currWeather = 'https://api.openweathermap.org/data/2.5/weather?q=';
 var lat;
 var lon;
-$('.datepicker').on('change', console.log($('.datepicker').val()));
+var date = moment().format('YYYY-MM-DD');
+console.log(date);
+
+$('.datepicker').change(function(){
+  var calendarDate = $('.datepicker').val();
+  
+  console.log(calendarDate);
+  if(date == calendarDate){
+    console.log('true');
+  }
+});
 getLatLon();
 function getLatLon() {
 var currentWeathURL = (currWeather + 'Boston' + apiKey + '&units=imperial');
