@@ -3,7 +3,7 @@ var userInput = $("#textarea1");
 var searchList = [];
 var clientID = "MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
 var searchResults = document.querySelector(".search-list");
-var eventResults = $(".event-results");
+var eventResults = $("#event-results");
 var submitBtn = $("#submit-btn");
 
 // modify 
@@ -22,7 +22,7 @@ fetch(url)
         console.log(data)
         console.log(data.events[0].performers[0].name)
         var eventName = $("#name");
-
+        eventName.text(data.events[0].performers[0].name);
         eventResults.append(eventName);
 
 
@@ -71,7 +71,7 @@ fetch(url)
 submitBtn.on("click", function (event) {
     event.preventDefault();
     var zip = userInput.val();
-    
+    console.log(zip);
     searchList.push(zip);
     localStorage.setItem("Search List", JSON.stringify(searchList));
     getEvents(zip);
