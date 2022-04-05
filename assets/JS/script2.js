@@ -2,7 +2,7 @@ alert("hello");
 var userInput = $("#textarea1");
 var searchList = [];
 var clientID = "MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
-var searchResults = $("event-results")
+var searchResults = document.querySelector("search-list");
 var submitBtn = $("#submit-btn");
 
 // modify 
@@ -25,7 +25,7 @@ fetch(url)
 
 // Function that fetches weather information from past searches. Allows easy access to previous search results.
 function renderCities(){
-    searchList.innerHTML = "";
+    searchResults.innerHTML = "";
 
     for (var j = 0; j < cityList.length; j++) {
         var cityContent = cityList[j];
