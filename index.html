@@ -16,14 +16,14 @@
     />
     <link rel="stylesheet" href="./assets/css/main.css" />
     <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
-  ></script>
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+    ></script>
     <script
-    src="https://code.jquery.com/jquery-3.5.0.min.js"
-     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
-     crossorigin="anonymous">
-</script>
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <nav>
@@ -48,9 +48,8 @@
             <div class="input-field col s12 col m12 col l7 city-input">
               <textarea id="textarea1" class="materialize-textarea"></textarea>
               <label for="textarea1">
-                please enter a city<i class="material-icons"
-                  >location_city</i
-                ></label
+                <span>please enter a city</span
+                ><i class="material-icons">location_city</i></label
               >
             </div>
           </div>
@@ -58,6 +57,7 @@
         <input
           type="date"
           class="datepicker col s12 col m12 col l7 date-input"
+          id="datepicker"
         />
       </div>
       <div class="row">
@@ -92,15 +92,24 @@
         </ul>
       </div>
     </main>
-    <div id="appguide" style="height: 200px; background-color: #71A2B6; color: #fff;">
+    <div
+      id="appguide"
+      style="height: 200px; background-color: #71a2b6; color: #fff"
+    >
       <h5>App Guide</h5>
       <p class="guideabouttext">Hello</p>
     </div>
-    <div id="Aboutus" style="height: 200px; background-color: #7C8483; color: #fff;">
+    <div
+      id="Aboutus"
+      style="height: 200px; background-color: #7c8483; color: #fff"
+    >
       <h5>About us</h5>
-      <p class="guideabouttext">This website was made by Fong, Brady, Brennan, and Logan. 
-        It is made for buying tickets in certain areas and getting a good price used by SeatGeek API,
-      and a weather API to let you know the forcast for your gameday experiance.</p>
+      <p class="guideabouttext">
+        This website was made by Fong, Brady, Brennan, and Logan. It is made for
+        buying tickets in certain areas and getting a good price used by
+        SeatGeek API, and a weather API to let you know the forcast for your
+        gameday experiance.
+      </p>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/script2.js"></script>
