@@ -2,7 +2,8 @@ alert("hello");
 var userInput = $("#textarea1");
 var searchList = [];
 var clientID = "MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
-var searchResults = document.querySelector("search-list");
+var searchResults = document.querySelector(".search-list");
+var eventResults = $(".event-results");
 var submitBtn = $("#submit-btn");
 
 // modify 
@@ -12,54 +13,58 @@ var submitBtn = $("#submit-btn");
 
 // var url = 'https://api.seatgeek.com/2/events?taxonomies.name=sports&datetime_utc=2022-04-12&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz'
 function getEvents(zip){
-var url = "https://api.seatgeek.com/2/events?postal_code=" + zip + "per_page=30&taxonomies.name=sports&datetime_utc.gte=2022-04-05&client_id=" + clientID;
+var url = "https://api.seatgeek.com/2/events?postal_code=" + zip + "&per_page=30&taxonomies.name=sports&datetime_utc.gte=2022-04-05&client_id=" + clientID;
 fetch(url)
     .then(function(response) {
         return response.json();
     })
     .then(function (data) {
         console.log(data)
+        console.log(data.events[0].performers[0].name)
+        var eventName = $("#zip");
+        
+
+
     })
 
 }
 
 // Function that fetches weather information from past searches. Allows easy access to previous search results.
-function renderCities(){
-    searchResults.innerHTML = "";
+// function renderCities(){
+//     searchResults.innerHTML = "";
 
-    for (var j = 0; j < cityList.length; j++) {
-        var cityContent = cityList[j];
+//     for (var j = 0; j < searchList.length; j++) {
+//         var searchContent = searchList[j];
 
-        var li = document.createElement("button");
-        li.textContent = cityContent;
-        li.style.width = '100%';
-        li.style.marginBottom = '5px';
-        searchList.appendChild(li);
-    }
-    searchList.addEventListener("click", function(event){
-        event.preventDefault();
+//         var li = document.createElement("button");
+//         li.textContent = cityContent;
+//         li.style.width = '100%';
+//         li.style.marginBottom = '5px';
+//         searchResults.appendChild(li);
+//     }
+//     searchResults.addEventListener("click", function(event){
+//         event.preventDefault();
         
-        var element= event.target;
-        if(element.matches("button") === true){
-            city = element.textContent;
+//         var element= event.target;
+//         if(element.matches("button") === true){
+//             zip = element.textContent;
         
-            getWeather(city);
-            get5Forecast(city);
+//             getEvents(zip);
             
-        }
+//         }
 
-    });
-}
+//     });
+// }
 
-// Function to save searched cities and display them
-function getCities(){
-    var cities = JSON.parse(localStorage.getItem("City Name"));
+// // Function to save searched cities and display them
+// function getResults(){
+//     var zips = JSON.parse(localStorage.getItem("Search List"));
   
-    if (cities !== null) {
-        cityList = cities;
-      }
-    renderCities();
-}
+//     if (zips !== null) {
+//         searchList = zips;
+//       }
+//     renderCities();
+// }
     // event listener for search button
 submitBtn.on("click", function (event) {
     event.preventDefault();
