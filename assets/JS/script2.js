@@ -1,4 +1,5 @@
 alert("hello");
+var userInput = $("#userInput");
 // modify 
 // var url = "https://api.seatgeek.com/2/events?per_page=20&lat=42.3600825&lon=-71.0588801&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
 // var url = "https://api.seatgeek.com/2/events?per_page=20&postal_code=55411&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
@@ -13,3 +14,17 @@ fetch(url)
     .then(function (data) {
         console.log(data)
     })
+
+
+    // event listener for search button
+srchBtn.on("click", function (event) {
+    event.preventDefault();
+    var zip = userInput.val();
+    
+    cityList.push(city);
+    localStorage.setItem("City Name", JSON.stringify(cityList));
+    getCities();
+    getWeather(city);
+    get5Forecast(city);
+
+});
