@@ -1,0 +1,19 @@
+.Welcome {
+  background-color: #60b2e5;
+  padding: 1px;
+}
+.nav-wrapper {
+  background-color: #982649;
+}
+
+main {
+  margin: 1%;
+}
+#appguide {
+    margin: 75px;
+    border-radius: 20px;
+}
+#Aboutus {
+    margin: 75px;
+    border-radius: 20px;
+}
