@@ -1,4 +1,4 @@
-alert("hello");
+
 var userInput = $("#textarea1");
 var searchList = [];
 var clientID = "MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
