@@ -23,7 +23,7 @@ fetch(url)
         console.log(data.events[0].performers[0].name)
         var eventName = $("#name");
         eventName.text(data.events[0].performers[0].name);
-        eventResults.append(eventName);
+        
 
 
 
