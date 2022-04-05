@@ -15,15 +15,23 @@ main {
 #appguide {
   margin: 75px;
   border-radius: 20px;
+  height: 200px; 
+  background-color: #982649; 
+  color: #53f4ff;
 }
 #Aboutus {
   margin: 75px;
   border-radius: 20px;
+  height: 200px; 
+  background-color: #982649; 
+  color: #53f4ff;
 }
+
 .guideabouttext {
   text-align: center;
   font-size: 20px;
   padding: 30px;
+  color: white;
 }
 
 #submit-btn {
@@ -43,6 +51,10 @@ main {
   background-color: #982649;
   border-radius: 0.5em;
   color: #7c8483;
+}
+.twoboxheaders {
+  padding: 10px;
+  border-bottom: 4px solid #7c8483;
 }
 
 li a {
