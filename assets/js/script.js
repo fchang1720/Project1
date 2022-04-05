@@ -1,19 +1,18 @@
 var apiKey = '&appid=8710c92cc91b2be9b69b111ac287d778';
 var currWeather = 'https://api.openweathermap.org/data/2.5/weather?q=';
 var cityInput = $('#textarea1');
-var dateInput = $('.datepicker').val();
+var dateInput; 
 var lat;
 var lon;
-var date = moment().format('YYYY-MM-DD');
-var datePlus = moment().add(1, 'days').format('YYYY-MM-DD');
-console.log(date);
-console.log(datePlus);
+// var date = moment().format('YYYY-MM-DD');
+// console.log(date);
 $('#submit-btn').on('click', function(){
-  console.log(cityInput.val());
-  console.log(dateInput);
-  if(date == dateInput){
-    console.log('true');
-  }
+  dateInput = $('#datepicker').val();
+  // console.log(cityInput.val());
+  // console.log(dateInput);
+  // if(date == dateInput){
+  //   console.log('true');
+  // }
   if(dateInput == '' || cityInput.val() == ''){
     console.log('empty');
   }else{
@@ -28,7 +27,8 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      // 
+      
       lat = data.coord.lat;
       lon = data.coord.lon;
       getWeather();
@@ -43,10 +43,13 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
     })
     .then(function (data) {
       console.log(data);
-      for(var i = 0; i< 8, i++)
-        if(dateIndex == ){
-          console.log(data.current.temp);
+      for(var i = 0; i< 8; i++){
+        if(dateInput == moment().add(i, 'days').format('YYYY-MM-DD')){
+          console.log(moment().add(i, 'days').format('YYYY-MM-DD'));
+          console.log(i)
+          $('.card-title').text(cityInput.val() + moment().add(i, 'days').format('l'))
         }
-    }
+      }
+      
     })
   } 
