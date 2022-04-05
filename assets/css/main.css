@@ -1,7 +1,11 @@
 .Welcome {
-    background-color: #60B2E5;
-    padding: 1px;
+  background-color: #60b2e5;
+  padding: 1px;
 }
 .nav-wrapper {
-    background-color: #982649;
+  background-color: #982649;
+}
+
+main {
+  margin: 1%;
 }
