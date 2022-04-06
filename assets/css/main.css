@@ -49,7 +49,7 @@ main {
   min-height: 200px;
 }
 
-.event-results #textarea1 {
+#textarea1 {
   background-color: #982649;
   border-radius: 0.5em;
 }
