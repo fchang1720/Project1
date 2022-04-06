@@ -46,6 +46,7 @@ main {
 
 .event-results {
   background-color: #53f4ff;
+  float: right;
 }
 
 #textarea1 {
@@ -71,3 +72,14 @@ li a {
   border-radius: 1em;
 }
 
+.weather-results .card-title{
+  border-bottom: solid 4px;
+  padding-bottom: 8px;
+  font-weight: 500;
+  font-size: 230%;
+}
+
+.weather-data {
+  padding-bottom: 7px;
+  font-size: 120%;
+}
