@@ -61,9 +61,11 @@ function getEvents(city){
                 event.preventDefault();
 
                 var element= event.target;
-                // favList.push(element)
+                favorites.append(element);
+                favList.push(element)
                 console.log(element)
-                // localStorage.setItem("favorites", JSON.stringify(favList));
+                // favText = element.val();
+                // localStorage.setItem("favorites", JSON.stringify(element));
                 // getFav();
             });
             
