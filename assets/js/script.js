@@ -27,7 +27,7 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
       return response.json();
     })
     .then(function (data) {
-      // 
+      
       
       lat = data.coord.lat;
       lon = data.coord.lon;
