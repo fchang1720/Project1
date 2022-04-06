@@ -6,7 +6,7 @@ var APIKey = "6d7bc9f4afbf01277e0e2187714f7bc1";
 var searchResults = document.querySelector(".search-list");
 var eventResults = $("#event-results");
 var submitBtn = $("#submit-btn");
-// just commenting
+
 
 function getEvents(city){
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
