@@ -49,7 +49,7 @@ function getEvents(city){
             var link = $("<a>");
             var favorite =$("<button>");
             var date =$("<h4>");
-            link.attr('href', data.events[i].performers[0].url)
+            link.attr('href', data.events[i].url)
             date.text([month, day, year].join('/'))
             favorite.text("Favorite");
             link.text("Buy Tickets");   
