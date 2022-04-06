@@ -16,6 +16,7 @@ $('#submit-btn').on('click', function(){
   // }
   if(dateInput == '' || cityInput.val() == ''){
     console.log('empty');
+    noInput();
   }else{
     getLatLon();
   }
@@ -44,25 +45,56 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
     })
     .then(function (data) {
       console.log(data);
+      if(dateInput > moment().add(7, 'days').format('YYYY-MM-DD')){
+        for(var i = 7; dateInput > moment().add(i, 'days').format('YYYY-MM-DD') ; i++){
+          var futIndex = i+1;
+          if(dateInput == moment().add(futIndex, 'days').format('YYYY-MM-DD')){
+            $('.weather-results').show();     
+            futureDate(futIndex);
+          }
+      }
+    }else if(dateInput < moment().format('YYYY-MM-DD')){
+          console.log('past');
+          for(var i = 0; dateInput < moment().subtract(i, 'days').format('YYYY-MM-DD') ; i++){
+            var pastIndex = i+1;
+            if(dateInput == moment().subtract(pastIndex, 'days').format('YYYY-MM-DD')){
+              $('.weather-results').show();     
+              pastDate(pastIndex);
+            }
+          }
+    }else{
       for(var i = 0; i< 8; i++){
         if(dateInput == moment().add(i, 'days').format('YYYY-MM-DD')){
           $('.weather-results').show();     
           dispWeather(i, data);
         }
       }
-      
+    }
     })
   } 
 
   function noInput() {
+    $('.weather-results').show(); 
     $('.card-title').text('ERROR');
+    $('#weatherData').text('Search fields incomplete.  Please enter a city name, and select a valid date.');
 
+  }
+
+  function futureDate(i){
+    $('.card-title').text(cityInput.val() +' (' + moment().add(i, 'days').format('l') + ')');
+    $('#weatherData').text('Weather Data Unavailable: Date selected is beyond the 7-Day forecast window. Please select either the current date, or a date within forecast window.');
+  }
+
+  function pastDate(i){
+    $('.card-title').text(cityInput.val() +' (' + moment().subtract(i, 'days').format('l') + ')');
+    $('#weatherData').text('Weather Data Unavailable: Date selected is a past date.  Please select either the current date, or a date within the 7-Day forecast window.');
   }
 
   function dispWeather(index, data){
     
     var cardSection = $('#weatherData'); 
     cardSection.children().remove();
+    cardSection.text('');
     $('.card-title').text(cityInput.val() + ' (' + moment().add(index, 'days').format('l') + ')')
     //temp low
     var tempLow = $('<p>');
