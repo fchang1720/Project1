@@ -70,6 +70,7 @@ function getEvents(city) {
               var element = event.target;
               favorites.append(element);
               favList.push(element);
+              console.log($(element).attr("data-eventName"))
               console.log(element);
               favText = element.val();
               localStorage.setItem("favorites", JSON.stringify(element));
