@@ -46,9 +46,10 @@ main {
 .event-results {
   background-color: #53f4ff;
   border-radius: 1em;
+  min-height: 200px;
 }
 
-#textarea1 {
+.event-results #textarea1 {
   background-color: #982649;
   border-radius: 0.5em;
 }
@@ -69,4 +70,16 @@ li a {
 
 .weather-results .card {
   border-radius: 1em;
+}
+
+.weather-results .card-title {
+  border-bottom: solid 4px;
+  padding-bottom: 8px;
+  font-weight: 500;
+  font-size: 230%;
+}
+
+.weather-data {
+  padding-bottom: 7px;
+  font-size: 120%;
 }
