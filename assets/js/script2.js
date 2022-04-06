@@ -5,7 +5,7 @@ var APIKey = "6d7bc9f4afbf01277e0e2187714f7bc1";
 var searchResults = document.querySelector(".search-list");
 var eventResults = $("#event-results");
 var submitBtn = $("#submit-btn");
-var favorites = $("#favorites");
+var favorites = document.querySelector("#favorites")
 var favList = [];
 
 function getEvents(city) {
@@ -68,32 +68,41 @@ function getEvents(city) {
               event.preventDefault();
 
               var element = event.target;
-              favorites.append(element);
-              favList.push(element);
-              console.log($(element).attr("data-eventName"))
-              console.log(element);
-              favText = element.val();
-              localStorage.setItem("favorites", JSON.stringify(element));
+ 
+              if (!favList.includes($(element).attr("data-eventName"))){
+              favList.push($(element).attr("data-eventName"));
+             
+              console.log(favList);
+              
+              localStorage.setItem("favorites", JSON.stringify(favList));
+              }
             });
           }
         });
     });
 }
-// function renderFav(){
-//     favorites.innerHTML = "";
-//     for (var j = 0; j < favList[j]; j++) {
-//         var favContent = favList[j];
-//         favorites.append(favContent);
+function renderFav(){
+    favorites.innerHTML = "";
+    for (var j = 0; j < favList[j]; j++) {
+        var favContent = favList[j];
 
-//     }
-// }
-// function getFav(){
-//     var favs = JSON.parse(localStorage.get("favorites"));
-//     if (favs !== null) {
-//         favList = favs
-//     }
-//     renderFav();
-// }
+        var li = document.createElement("button");
+        li.textContent = favContent;
+        li.style.width = '100%';
+        li.style.marginBottom = '5px';
+        favorites.appendChild(li);
+        console.log(favorites);
+    }
+    
+}
+renderFav();
+function getFav(){
+    var favs = JSON.parse(localStorage.get("favorites"));
+    if (favs !== null) {
+        favList = favs;
+    }
+    renderFav();
+}
 submitBtn.on("click", function (event) {
   event.preventDefault();
   var city = userInput.val();
