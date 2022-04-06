@@ -6,6 +6,7 @@ var APIKey = "6d7bc9f4afbf01277e0e2187714f7bc1";
 var searchResults = document.querySelector(".search-list");
 var eventResults = $("#event-results");
 var submitBtn = $("#submit-btn");
+var favorites = $("#favorites");
 
 
 function getEvents(city){
@@ -57,8 +58,10 @@ function getEvents(city){
             eventName.on("click", function(event){
                 event.preventDefault();
 
-                var element= event.target;
+                var element= $("<button>")
+                element.text(event.target)
                 console.log(element)
+
 
             });
             
