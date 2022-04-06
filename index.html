@@ -14,9 +14,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Graduate&family=Red+Hat+Mono:wght@300&family=Smokum&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Graduate&family=Red+Hat+Mono:wght@300&family=Smokum&display=swap" rel="stylesheet">
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
@@ -29,8 +30,8 @@
   </head>
   <body>
     <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Sporting Event Finder</a>
+      <div class="nav-wrapper main-menu">
+        <a href="#main-row" class="brand-logo">Find a Game</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
             <a href="#appguide"><i class="material-icons">description</i> </a>
@@ -39,18 +40,20 @@
             <a href="#Aboutus"> <i class="material-icons">assignment_ind</i></a>
           </li>
           <li>
-            <a href="collapsible.html"><i class="material-icons">email</i></a>
+            <a href="mailto: dev.mail.bag@gmail.com"
+              ><i class="material-icons">email</i></a
+            >
           </li>
         </ul>
       </div>
     </nav>
-    
+
     <div class="Welcome">
       <h5>Welcome banner</h5>
       <p>Hi this is our website.</p>
     </div>
     <main class="col s12 col m12 col l12">
-      <div class="row">
+      <div class="row" id="main-row">
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12 col m12 col l7 city-input">
@@ -85,14 +88,17 @@
                   </p>
                 </div>
                 <div class="card-action">
-                  <a href="#">This is a link</a>
-                  <a href="#">This is a link</a>
+                  <a href="google.com" class="weather-link">This is a link</a>
+                  <a href="google.com" class="weather-link">This is a link</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <ul class="collection col s11 col m8 cold l5 event-results" id="event-results" >
+        <ul
+          class="collection col s11 col m8 cold l5 event-results"
+          id="event-results"
+        >
           <li class="collection-item" id="name">Alvin</li>
           <li class="collection-item">Alvin</li>
           <li class="collection-item">Alvin</li>
@@ -106,9 +112,12 @@
     </div>
     <div id="Aboutus">
       <h5 class="twoboxheaders">About us</h5>
-      <p class="guideabouttext">This website was made by Fong, Brady, Brennan, and Logan. 
-        It is made for buying tickets in certain areas and getting a good price used by SeatGeek API,
-      and a weather API to let you know the forcast for your gameday experiance.</p>
+      <p class="guideabouttext">
+        This website was made by Fong, Brady, Brennan, and Logan. It is made for
+        buying tickets in certain areas and getting a good price used by
+        SeatGeek API, and a weather API to let you know the forcast for your
+        gameday experiance.
+      </p>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/script2.js"></script>
