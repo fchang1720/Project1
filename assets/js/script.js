@@ -54,10 +54,15 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
     })
   } 
 
-  
+  function noInput() {
+    $('.card-title').text('ERROR');
+
+  }
+
   function dispWeather(index, data){
     
-    var cardSection = $('.card-content'); 
+    var cardSection = $('#weatherData'); 
+    cardSection.children().remove();
     $('.card-title').text(cityInput.val() + ' (' + moment().add(index, 'days').format('l') + ')')
     //temp low
     var tempLow = $('<p>');
