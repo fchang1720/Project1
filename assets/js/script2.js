@@ -32,13 +32,13 @@ function getEvents(city) {
         "&per_page=10&taxonomies.name=sports&datetime_utc.gte=2022-04-05&client_id=" +
         clientID;
 
-      fetch(url)
+        fetch(url)
         .then(function (response) {
           return response.json();
         })
         .then(function (data) {
           console.log(data);
-
+            eventResults.children().remove();
           for (let i = 0; i < data.events.length; i++) {
             var d = new Date(data.events[i].datetime_utc),
               month = "" + (d.getMonth() + 1),
