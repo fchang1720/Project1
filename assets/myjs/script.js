@@ -52,6 +52,7 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
       
     })
   } 
+  // commenting
   
   function dispWeather(index, data){
     
