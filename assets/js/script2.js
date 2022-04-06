@@ -27,6 +27,7 @@ function getEvents(city){
         })
         .then(function (data) {
             console.log(data)
+            eventResults.children().remove();
             
             for (let i = 0; i < data.events.length; i++) {
 
@@ -39,7 +40,6 @@ function getEvents(city){
             if (month.length < 2) month = '0' + month;
             if (day.length < 2) day = '0' + day;
    
-          
             var eventName = $("<h5>");
             var link = $("<a>");
             var favorite =$("<button>");
