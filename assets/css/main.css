@@ -1,9 +1,10 @@
+.nav-wrapper {
+  background-color: #982649;
+}
+
 .Welcome {
   background-color: #60b2e5;
   padding: 1px;
-}
-.nav-wrapper {
-  background-color: #982649;
 }
 
 main {
@@ -18,6 +19,7 @@ main {
   height: 200px; 
   background-color: #982649; 
   color: #53f4ff;
+  
 }
 #Aboutus {
   margin: 75px;
