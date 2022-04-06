@@ -45,6 +45,10 @@ main {
 
 .event-results {
   background-color: #53f4ff;
+
+  border-radius: 1em;
+  min-height: 200px;
+
   float: right;
 }
 
