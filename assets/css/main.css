@@ -46,6 +46,7 @@ main {
 
 .event-results {
   background-color: #53f4ff;
+  float: right;
 }
 
 #textarea1 {
