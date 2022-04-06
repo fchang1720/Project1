@@ -87,7 +87,7 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
 
   function pastDate(i){
     $('.card-title').text(cityInput.val() +' (' + moment().subtract(i, 'days').format('l') + ')');
-    $('#weatherData').text('Weather Data Unavailable: Date selected is a past date.  Please select either the current date, or a date within the 7-Day forecast window.');
+    $('#weatherData').text('Weather Data Unavailable: Date selected is a prior date.  Please select either the current date, or a date within the 7-Day forecast window.');
   }
 
   function dispWeather(index, data){
