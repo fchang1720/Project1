@@ -52,6 +52,7 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
       
     })
   } 
+<<<<<<< HEAD
   
   function dispWeather(index, data){
     
@@ -79,3 +80,5 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
     weatherIcon.attr('src','http://openweathermap.org/img/wn/' + iconCode +'@2x.png')
     cardSection.append(weatherIcon);
   }
+=======
+>>>>>>> main

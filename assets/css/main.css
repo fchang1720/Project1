@@ -7,7 +7,7 @@
 }
 
 main {
-  margin: 2%;
+  margin: 0%;
   padding: 3%;
   background-image: url("https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   background-size: cover;
@@ -15,15 +15,23 @@ main {
 #appguide {
   margin: 75px;
   border-radius: 20px;
+  height: 200px;
+  background-color: #982649;
+  color: #53f4ff;
 }
 #Aboutus {
   margin: 75px;
   border-radius: 20px;
+  height: 200px;
+  background-color: #982649;
+  color: #53f4ff;
 }
+
 .guideabouttext {
   text-align: center;
   font-size: 20px;
   padding: 30px;
+  color: white;
 }
 
 #submit-btn {
@@ -44,12 +52,16 @@ main {
   border-radius: 0.5em;
   color: #7c8483;
 }
+.twoboxheaders {
+  padding: 10px;
+  border-bottom: 4px solid #7c8483;
+}
 
 li a {
   border-left: 4px solid #7c8483;
   border-radius: 0.5em;
 }
 
-body {
-  margin: 1%;
+.weather-results .card {
+  border-radius: 1em;
 }
