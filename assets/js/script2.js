@@ -69,10 +69,10 @@ function getEvents(city) {
             link.attr("href", data.events[i].url);
             date.text([month, day, year].join("/"));
             favorite.text("Favorite");
-            link.text("Buy Tickets");
-            eventName.text(
-              data.events[i].performers[0].name + "-" + date.text()
-            );
+            link.text("Buy Tickets");   
+            eventName.text(data.events[i].performers[0].name +"-"+ date.text());
+            eventName.attr("data-eventName", data.events[i].performers[0].name +"-"+ date.text())
+            // to make favorite button work, added to button instead line above.
             eventResults.append(eventName);
 
             eventResults.append(favorite);
@@ -84,6 +84,7 @@ function getEvents(city) {
               var element = event.target;
               favorites.append(element);
               favList.push(element);
+              console.log($(element).attr("data-eventName"))
               console.log(element);
               favText = element.val();
               localStorage.setItem("favorites", JSON.stringify(element));
