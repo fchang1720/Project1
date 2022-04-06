@@ -6,6 +6,9 @@ var APIKey = "6d7bc9f4afbf01277e0e2187714f7bc1";
 var searchResults = document.querySelector(".search-list");
 var eventResults = $("#event-results");
 var submitBtn = $("#submit-btn");
+var favorites = $("#favorites")
+var favList = [];
+
 
 
 function getEvents(city){
@@ -31,7 +34,7 @@ function getEvents(city){
             
             for (let i = 0; i < data.events.length; i++) {
 
-            console.log(data.events[i].datetime_utc)
+ 
             var d = new Date(data.events[i].datetime_utc),
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
@@ -58,8 +61,12 @@ function getEvents(city){
                 event.preventDefault();
 
                 var element= event.target;
+                favorites.append(element);
+                favList.push(element)
                 console.log(element)
-
+                // favText = element.val();
+                // localStorage.setItem("favorites", JSON.stringify(element));
+                // getFav();
             });
             
             }
@@ -70,14 +77,27 @@ function getEvents(city){
     })
 
 }
-
-
+// function renderFav(){
+//     favorites.innerHTML = "";
+//     for (var j = 0; j < favList[j]; j++) {
+//         var favContent = favList[j];
+//         favorites.append(favContent);
+        
+//     }
+// }
+// function getFav(){
+//     var favs = JSON.parse(localStorage.get("favorites"));
+//     if (favs !== null) {
+//         favList = favs
+//     }
+//     renderFav();
+// }
 submitBtn.on("click", function (event) {
     event.preventDefault();
     var city = userInput.val();
-    console.log(city);
+
     searchList.push(city);
-    localStorage.setItem("Search List", JSON.stringify(searchList));
+    // localStorage.setItem("Search List", JSON.stringify(searchList));
     getEvents(city);
 
 });
