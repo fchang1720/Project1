@@ -45,11 +45,37 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
       console.log(data);
       for(var i = 0; i< 8; i++){
         if(dateInput == moment().add(i, 'days').format('YYYY-MM-DD')){
-          console.log(moment().add(i, 'days').format('YYYY-MM-DD'));
-          console.log(i)
-          $('.card-title').text(cityInput.val() + moment().add(i, 'days').format('l'))
+                  
+          dispWeather(i, data);
         }
       }
       
     })
   } 
+  
+  function dispWeather(index, data){
+    
+    var cardSection = $('.card-content'); 
+    $('.card-title').text(cityInput.val() + ' (' + moment().add(index, 'days').format('l') + ')')
+    //temp low
+    var tempLow = $('<p>');
+    tempLow.text('Low Temperature: ' + data.daily[index].temp.min + ' \u00B0F');    
+    cardSection.append(tempLow);
+    //temp high
+    var tempHigh = $('<p>');
+    tempHigh.text('High Temperature: ' + data.daily[index].temp.max + ' \u00B0F');
+    cardSection.append(tempHigh);
+    //wind
+    var windSpeed = $('<p>');
+    windSpeed.text('Wind: ' + data.daily[index].wind_speed + ' MPH');
+    cardSection.append(windSpeed);
+    //weather condition 
+    var weatherDesc = $('<p>');
+    weatherDesc.text(data.daily[index].weather[0].description);
+    cardSection.append(weatherDesc);
+    //weather icon
+    var weatherIcon = $('<img>');
+    var iconCode = data.daily[index].weather[0].icon;
+    weatherIcon.attr('src','http://openweathermap.org/img/wn/' + iconCode +'@2x.png')
+    cardSection.append(weatherIcon);
+  }
