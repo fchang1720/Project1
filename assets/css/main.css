@@ -91,3 +91,7 @@ li a {
   padding-bottom: 7px;
   font-size: 120%;
 }
+
+.event-name {
+  border-top: 3px solid #7c8483;
+}
