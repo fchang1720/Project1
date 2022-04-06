@@ -37,9 +37,9 @@ main {
 
 .guideabouttext {
   text-align: center;
-  font-size: 20px;
-  padding: 30px;
+  font-size: 19.6px;
   color: white;
+  padding: 1px;
 }
 
 #submit-btn {
