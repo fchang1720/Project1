@@ -1,5 +1,5 @@
 body {
-  font-family: 'Graduate', cursive;
+  font-family: "Graduate", cursive;
 }
 .nav-wrapper {
   background-color: #982649;
@@ -22,7 +22,6 @@ main {
   height: 200px;
   background-color: #982649;
   color: #53f4ff;
-  
 }
 #Aboutus {
   margin: 75px;
@@ -46,7 +45,12 @@ main {
 
 .event-results {
   background-color: #53f4ff;
+
+  border-radius: 1em;
+  min-height: 200px;
+
   float: right;
+
 }
 
 #textarea1 {
@@ -72,7 +76,7 @@ li a {
   border-radius: 1em;
 }
 
-.weather-results .card-title{
+.weather-results .card-title {
   border-bottom: solid 4px;
   padding-bottom: 8px;
   font-weight: 500;
