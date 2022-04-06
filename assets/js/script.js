@@ -4,6 +4,7 @@ var cityInput = $('#textarea1');
 var dateInput; 
 var lat;
 var lon;
+$('.weather-results').hide();
 // var date = moment().format('YYYY-MM-DD');
 // console.log(date);
 $('#submit-btn').on('click', function(){
@@ -45,7 +46,7 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
       console.log(data);
       for(var i = 0; i< 8; i++){
         if(dateInput == moment().add(i, 'days').format('YYYY-MM-DD')){
-                  
+          $('.weather-results').show();     
           dispWeather(i, data);
         }
       }
@@ -59,18 +60,22 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
     $('.card-title').text(cityInput.val() + ' (' + moment().add(index, 'days').format('l') + ')')
     //temp low
     var tempLow = $('<p>');
+    tempLow.addClass('weather-data');
     tempLow.text('Low Temperature: ' + data.daily[index].temp.min + ' \u00B0F');    
     cardSection.append(tempLow);
     //temp high
     var tempHigh = $('<p>');
+    tempHigh.addClass('weather-data');
     tempHigh.text('High Temperature: ' + data.daily[index].temp.max + ' \u00B0F');
     cardSection.append(tempHigh);
     //wind
     var windSpeed = $('<p>');
+    windSpeed.addClass('weather-data');
     windSpeed.text('Wind: ' + data.daily[index].wind_speed + ' MPH');
     cardSection.append(windSpeed);
     //weather condition 
     var weatherDesc = $('<p>');
+    weatherDesc.addClass('weather-data');
     weatherDesc.text(data.daily[index].weather[0].description);
     cardSection.append(weatherDesc);
     //weather icon
