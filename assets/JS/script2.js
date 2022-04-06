@@ -7,12 +7,7 @@ var searchResults = document.querySelector(".search-list");
 var eventResults = $("#event-results");
 var submitBtn = $("#submit-btn");
 
-// modify 
-// var url = "https://api.seatgeek.com/2/events?per_page=20&lat=42.3600825&lon=-71.0588801&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
-// var url = "https://api.seatgeek.com/2/events?per_page=20&postal_code=55411&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
-// var url = "https://api.seatgeek.com/2/events?highest_price.lte=40&per_page=20&postal_code=55411&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz"
 
-// var url = 'https://api.seatgeek.com/2/events?taxonomies.name=sports&datetime_utc=2022-04-12&client_id=MjY0MTc0MDV8MTY0OTA5NjY1Ni4yOTYzNDMz'
 function getEvents(city){
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
@@ -55,7 +50,7 @@ function getEvents(city){
             link.text("Buy Tickets");   
             eventName.text(data.events[i].performers[0].name +"-"+ date.text());
             eventResults.append(eventName);
-            // eventResults.append(date);
+
             eventResults.append(favorite);
             eventResults.append(link);
             
@@ -64,10 +59,7 @@ function getEvents(city){
 
                 var element= event.target;
                 console.log(element)
-                // if(element.matches("button") === true){
-                //     localStorage.setItem("Search Favorite", JSON.stringify(eventResults[element]));
-                //     console.log(eventResults[element]);
-                // }
+
             });
             
             }
