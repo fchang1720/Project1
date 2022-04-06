@@ -5,6 +5,10 @@ body {
   background-color: #982649;
 }
 
+.brand-logo {
+  margin-left: 3%;
+}
+
 .Welcome {
   background-color: #60b2e5;
   padding: 1px;
@@ -55,6 +59,7 @@ main {
 #textarea1 {
   background-color: #982649;
   border-radius: 0.5em;
+  margin-left: -13px;
 }
 #datepicker {
   background-color: #982649;
