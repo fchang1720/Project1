@@ -55,7 +55,7 @@ function getEvents(city) {
     //     "&per_page=10&taxonomies.name=sports&datetime_utc.gte=2022-04-05&client_id=" +
     //     clientID;
 
-      fetch(url)
+        fetch(url)
         .then(function (response) {
           return response.json();
         })
@@ -85,11 +85,15 @@ function getEvents(city) {
             link.attr("href", data.events[i].url);
             date.text([month, day, year].join("/"));
             favorite.text("Favorite");
+            // link.text("Buy Tickets");   
+            // eventName.text(data.events[i].performers[0].name +"-"+ date.text());
+            // eventName.attr("data-eventName", data.events[i].performers[0].name +"-"+ date.text())
+            // favorite.attr("data-eventName", data.events[i].performers[0].name +"-"+ date.text())
             link.text("Buy Tickets");
             eventName.text(
               data.events[i].short_title + "-" + date.text()
             );
-            eventName.attr(
+            favorite.attr(
               "data-eventName",
               data.events[i].short_title + "-" + date.text()
             );
@@ -99,16 +103,20 @@ function getEvents(city) {
             eventResults.append(favorite);
             eventResults.append(link);
 
-            eventName.on("click", function (event) {
+            // eventName.on("click", function (event) {
+              favorite.on("click", function (event) {
               event.preventDefault();
 
               var element = event.target;
-              favorites.append(element);
-              favList.push(element);
-              console.log($(element).attr("data-eventName"));
-              console.log(element);
-              favText = element.val();
-              localStorage.setItem("favorites", JSON.stringify(element));
+ 
+              if (!favList.includes($(element).attr("data-eventName"))){
+              favList.push($(element).attr("data-eventName"));
+             
+              console.log(favList);
+              
+              localStorage.setItem("favorites", JSON.stringify(favList));
+              getFav();
+              }
             });
           }
         }
@@ -116,22 +124,36 @@ function getEvents(city) {
       }
     });
 }
-// function renderFav(){
-//     favorites.innerHTML = "";
-//     for (var j = 0; j < favList[j]; j++) {
-//         var favContent = favList[j];
-//         favorites.append(favContent);
+function renderFav(){
+    favorites.innerHTML = "";
+    for (var j = 0; j < favList.length; j++) {
+        var favContent = favList[j];
 
-//     }
-// }
-// function getFav(){
-//     var favs = JSON.parse(localStorage.get("favorites"));
-//     if (favs !== null) {
-//         favList = favs
-//     }
-//     renderFav();
+        var li = $("<h6>");
+        li.text(favContent + " ");
+
+
+        li.append('<button class="delete-btn">Delete</button>')
+        favorites.append(li);
+
+
+    }
+    
+}
+
+// function removeBtn(){
+
 // }
 
+
+function getFav(){
+    var favors = JSON.parse(localStorage.getItem("favorites"));
+    if (favors !== null) {
+        favList = favors;
+    }
+    renderFav();
+}
+getFav();
 //
 function noEvents(){
     var cityName = userInput.val();
