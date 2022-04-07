@@ -5,17 +5,10 @@ var dateInput;
 var lat;
 var lon;
 $('.weather-results').hide();
-// var date = moment().format('YYYY-MM-DD');
-// console.log(date);
+
 $('#submit-btn').on('click', function(){
   dateInput = $('#datepicker').val();
-  // console.log(cityInput.val());
-  // console.log(dateInput);
-  // if(date == dateInput){
-  //   console.log('true');
-  // }
-  if(dateInput == '' || cityInput.val() == ''){
-    console.log('empty');
+    if(dateInput == '' || cityInput.val() == ''){
     emptyInput();
   }else{
     getLatLon();
@@ -49,7 +42,6 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       if(dateInput > moment().add(7, 'days').format('YYYY-MM-DD')){
         for(var i = 7; dateInput > moment().add(i, 'days').format('YYYY-MM-DD') ; i++){
           var futIndex = i+1;
@@ -59,7 +51,6 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
           }
       }
     }else if(dateInput < moment().format('YYYY-MM-DD')){
-          console.log('past');
           for(var i = 0; dateInput < moment().subtract(i, 'days').format('YYYY-MM-DD') ; i++){
             var pastIndex = i+1;
             if(dateInput == moment().subtract(pastIndex, 'days').format('YYYY-MM-DD')){
