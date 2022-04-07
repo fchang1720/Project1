@@ -151,7 +151,6 @@ favorites.on("click", function (event) {
   }
 });
 
-// function removeBtn(){
 
 function getFav() {
   var favors = JSON.parse(localStorage.getItem("favorites"));
