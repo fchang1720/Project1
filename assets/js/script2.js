@@ -126,10 +126,10 @@ function renderFav(){
 
 
         li.append('<button class="delete-btn">Delete</button>')
-        var deleteBtn = $(".delete-btn")
+        // var deleteBtn = $(".delete-btn")
         // deleteBtn.attr("local-storage-value", )
         
-
+        
         favorites.append(li);
         
 
@@ -138,9 +138,6 @@ function renderFav(){
     
 }
 
-<<<<<<< HEAD
-function removeBtn(){
-=======
 favorites.on("click", function(event){
   var element1 = $(event.target);
   if (element1.is("button")){
@@ -158,10 +155,8 @@ favorites.on("click", function(event){
 
 })
 
-// function removeBtn(){
->>>>>>> main
 
-}
+
 
 
 function getFav(){
