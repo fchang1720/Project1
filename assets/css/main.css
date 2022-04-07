@@ -1,13 +1,10 @@
-body {
-  font-family: "Graduate", cursive;
-}
-
 .nav-wrapper {
   background-color: #982649;
 }
 
 .brand-logo {
   margin-left: 3%;
+  font-family: 'Graduate', cursive;
 }
 
 .Welcome {
@@ -17,6 +14,8 @@ body {
 
 .welcometext {
   padding-left: 45px;
+  font-weight: bold;
+
 }
 
 main {
@@ -32,6 +31,7 @@ main {
   height: 300px;
   background-color: #982649;
   color: #53f4ff;
+  font-family: 'Graduate', cursive;
 }
 
 #Aboutus {
@@ -40,13 +40,15 @@ main {
   height: 300px;
   background-color: #982649;
   color: #53f4ff;
+  font-family: 'Graduate', cursive;
 }
 
 .guideabouttext {
   text-align: center;
-  font-size: 19.6px;
+  font-size: 20px;
   color: white;
-  padding: 1px;
+  padding: 20px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #submit-btn {
@@ -121,4 +123,5 @@ li a {
 #favorites {
   background-color: #7c8483;
   border-radius: 1em;
+  font-family: 'Graduate', cursive;
 }
