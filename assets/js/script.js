@@ -16,7 +16,7 @@ $('#submit-btn').on('click', function(){
   // }
   if(dateInput == '' || cityInput.val() == ''){
     console.log('empty');
-    noInput();
+    emptyInput();
   }else{
     getLatLon();
   }
@@ -30,10 +30,15 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
     })
     .then(function (data) {
       
-      
+      console.log(data);
+      if(data.cod == '404')
+      {
+        cityNotFound();
+      }else{
       lat = data.coord.lat;
       lon = data.coord.lon;
       getWeather();
+      }
     }) 
   }
 
@@ -73,7 +78,7 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
     })
   } 
 
-  function noInput() {
+  function emptyInput() {
     $('.weather-results').show(); 
     $('.card-title').text('ERROR');
     $('#weatherData').text('Search fields incomplete.  Please enter a city name, and select a valid date.');
@@ -88,6 +93,12 @@ var currentWeathURL = (currWeather + cityInput.val() + apiKey + '&units=imperial
   function pastDate(i){
     $('.card-title').text(cityInput.val() +' (' + moment().subtract(i, 'days').format('l') + ')');
     $('#weatherData').text('Weather Data Unavailable: Date selected is a prior date.  Please select either the current date, or a date within the 7-Day forecast window.');
+  }
+
+  function cityNotFound(){
+    $('.weather-results').show(); 
+    $('.card-title').text('ERROR');
+    $('#weatherData').text('Unable to recognize city name.  Please verify city name is spelled correctly.');
   }
 
   function dispWeather(index, data){
