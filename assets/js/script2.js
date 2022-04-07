@@ -87,11 +87,11 @@ function getEvents(city) {
             favorite.text("Favorite");
             link.text("Buy Tickets");
             eventName.text(
-              data.events[i].performers[0].name + "-" + date.text()
+              data.events[i].short_title + "-" + date.text()
             );
             eventName.attr(
               "data-eventName",
-              data.events[i].performers[0].name + "-" + date.text()
+              data.events[i].short_title + "-" + date.text()
             );
             // to make favorite button work, added to button instead line above.
             eventResults.append(eventName);
