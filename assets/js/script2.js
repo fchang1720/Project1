@@ -7,7 +7,7 @@ var eventResults = $("#event-results");
 var submitBtn = $("#submit-btn");
 var favorites = $("#favorites");
 var favList = [];
-var dateInput; 
+var dateInput;
 
 eventResults.hide();
 
@@ -23,124 +23,122 @@ function getEvents(city) {
       return response.json();
     })
     .then(function (data) {
-        if(data.cod == '404')
-        {
-          noCityFound();
-        }else{
-      var lat = data.coord.lat;
-      var lon = data.coord.lon;
-      console.log(data);
-      var endDate;
-      for(var i = 0; dateInput >= moment().add(i, 'days').format('YYYY-MM-DD'); i++ ){
-          var addDay = i+1
-              if(dateInput == moment().add(i, 'days').format('YYYY-MM-DD'))
-              {
-                      endDate = moment().add(addDay, 'days').format('YYYY-MM-DD');
-                      console.log(endDate);
-              }
-      }
-  
-      var url =
-          "https://api.seatgeek.com/2/events?lat=" + lat + "&lon=" + lon + "&per_page=10" +
+      if (data.cod == "404") {
+        noCityFound();
+      } else {
+        var lat = data.coord.lat;
+        var lon = data.coord.lon;
+        console.log(data);
+        var endDate;
+        for (
+          var i = 0;
+          dateInput >= moment().add(i, "days").format("YYYY-MM-DD");
+          i++
+        ) {
+          var addDay = i + 1;
+          if (dateInput == moment().add(i, "days").format("YYYY-MM-DD")) {
+            endDate = moment().add(addDay, "days").format("YYYY-MM-DD");
+            console.log(endDate);
+          }
+        }
+
+        var url =
+          "https://api.seatgeek.com/2/events?lat=" +
+          lat +
+          "&lon=" +
+          lon +
+          "&per_page=10" +
           "&taxonomies.id=1010100,1030100,1020100,1050100,1040100,1040200,1010200,1030200,1020200" +
-          "&datetime_local.gte=" + dateInput + "&datetime_local.lt=" + endDate +
-           "&client_id=" +
+          "&datetime_local.gte=" +
+          dateInput +
+          "&datetime_local.lt=" +
+          endDate +
+          "&client_id=" +
           clientID;
 
-
-          fetch(url)
+        fetch(url)
           .then(function (response) {
-          return response.json();
+            return response.json();
           })
           .then(function (data) {
             eventResults.show();
             console.log(data);
-            eventResults.text('');
+            eventResults.text("");
             eventResults.children().remove();
-          if(data.events.length == 0)
-          {
+            if (data.events.length == 0) {
               noEvents();
-              console.log('no data');
-            }else{ 
-          for (let i = 0; i < data.events.length; i++) {
-            var d = new Date(data.events[i].datetime_local),
-              month = "" + (d.getMonth() + 1),
-              day = "" + d.getDate(),
-              year = d.getFullYear();
+              console.log("no data");
+            } else {
+              for (let i = 0; i < data.events.length; i++) {
+                var d = new Date(data.events[i].datetime_local),
+                  month = "" + (d.getMonth() + 1),
+                  day = "" + d.getDate(),
+                  year = d.getFullYear();
 
-            if (month.length < 2) month = "0" + month;
-            if (day.length < 2) day = "0" + day;
+                if (month.length < 2) month = "0" + month;
+                if (day.length < 2) day = "0" + day;
 
-            var eventName = $("<h5 >").addClass("event-name");
-            var link = $("<a>");
-            var favorite = $("<button>");
-            var date = $("<h4>");
-            link.attr("href", data.events[i].url);
-            date.text([month, day, year].join("/"));
-            favorite.text("Favorite");
+                var eventName = $("<h5 >").addClass("event-name");
+                var link = $("<a>");
+                var favorite = $("<button>");
+                var date = $("<h4>");
+                link.attr("href", data.events[i].url);
+                date.text([month, day, year].join("/"));
+                favorite.text("Favorite");
 
-            link.text("Buy Tickets");
-            eventName.text(
-              data.events[i].short_title + "-" + date.text()
-            );
-            favorite.attr(
-              "data-eventName",
-              data.events[i].short_title + "-" + date.text()
-            );
+                link.text("Buy Tickets");
+                eventName.text(data.events[i].short_title + "-" + date.text());
+                favorite.attr(
+                  "data-eventName",
+                  data.events[i].short_title + "-" + date.text()
+                );
 
-            eventResults.append(eventName);
+                eventResults.append(eventName);
 
-            eventResults.append(favorite);
-            eventResults.append(link);
+                eventResults.append(favorite);
+                eventResults.append(link);
 
+                favorite.on("click", function (event) {
+                  event.preventDefault();
 
-            favorite.on("click", function (event) {
-              event.preventDefault();
+                  var element = event.target;
 
-              var element = event.target;
- 
-              if (!favList.includes($(element).attr("data-eventName"))){
-              favList.push($(element).attr("data-eventName"));
-             
-              console.log(favList);
-              
-              localStorage.setItem("favorites", JSON.stringify(favList));
-              getFav();
+                  if (!favList.includes($(element).attr("data-eventName"))) {
+                    favList.push($(element).attr("data-eventName"));
+
+                    console.log(favList);
+
+                    localStorage.setItem("favorites", JSON.stringify(favList));
+                    getFav();
+                  }
+                });
               }
-            });
-          }
-        }
-        });
+            }
+          });
       }
     });
 }
-function renderFav(){
-    $('#favorites').children('h6').remove();
-    favorites.innerHTML = "";
-    for (var j = 0; j < favList.length; j++) {
-        var favContent = favList[j];
+function renderFav() {
+  $("#favorites").children("h6").remove();
+  favorites.innerHTML = "";
+  for (var j = 0; j < favList.length; j++) {
+    var favContent = favList[j];
 
-        var li = $("<h6>");
-        li.attr("data-fav-name", favContent);
-        li.text(favContent + " ");
+    var li = $("<h6>");
+    li.attr("data-fav-name", favContent);
+    li.text(favContent + " ");
 
+    li.append('<button class="delete-btn">Delete</button>');
+    var deleteBtn = $(".delete-btn");
+    // deleteBtn.attr("local-storage-value", )
 
-        li.append('<button class="delete-btn">Delete</button>')
-        var deleteBtn = $(".delete-btn")
-        // deleteBtn.attr("local-storage-value", )
-        
-
-        favorites.append(li);
-        
-
-
-    }
-    
+    favorites.append(li);
+  }
 }
 
-favorites.on("click", function(event){
+favorites.on("click", function (event) {
   var element1 = $(event.target);
-  if (element1.is("button")){
+  if (element1.is("button")) {
     console.log("yeah!");
     var favName = element1.parent().attr("data-fav-name");
     console.log(favName);
@@ -151,61 +149,65 @@ favorites.on("click", function(event){
     renderFav();
     localStorage.setItem("favorites", JSON.stringify(favList));
   }
-
-
-})
+});
 
 // function removeBtn(){
 
-}
-
-
-function getFav(){
-    var favors = JSON.parse(localStorage.getItem("favorites"));
-    if (favors !== null) {
-        favList = favors;
-    }
-    renderFav();
+function getFav() {
+  var favors = JSON.parse(localStorage.getItem("favorites"));
+  if (favors !== null) {
+    favList = favors;
+  }
+  renderFav();
 }
 getFav();
 //
-function noEvents(){
-    var cityName = userInput.val();
-    eventResults.text('There are no events near the city of ' + cityName + ' for the date you selected.');
+function noEvents() {
+  var cityName = userInput.val();
+  eventResults.text(
+    "There are no events near the city of " +
+      cityName +
+      " for the date you selected."
+  );
 }
 
- function expireDate(){
-    eventResults.show();
-    eventResults.children().remove();
-    eventResults.text('Error - Expired Date: No events to display. Please select a valid date to see events in your desired City.');
- };
+function expireDate() {
+  eventResults.show();
+  eventResults.children().remove();
+  eventResults.text(
+    "Error - Expired Date: No events to display. Please select a valid date to see events in your desired City."
+  );
+}
 
- function noInput() {
-    eventResults.show(); 
-    eventResults.text('Search fields incomplete.  Please enter a city name, and select a valid date.');
+function noInput() {
+  eventResults.show();
+  eventResults.text(
+    "Search fields incomplete.  Please enter a city name, and select a valid date."
+  );
+}
 
-  }
-
-  function noCityFound(){
-    eventResults.show(); 
-    eventResults.text('Error - City Input: Unable to recognize city name.  Please verify city name is spelled correctly.');
-  }
+function noCityFound() {
+  eventResults.show();
+  eventResults.text(
+    "Error - City Input: Unable to recognize city name.  Please verify city name is spelled correctly."
+  );
+}
 
 submitBtn.on("click", function (event) {
   event.preventDefault();
   var city = userInput.val();
-  dateInput = $('#datepicker').val();
-  if(dateInput == '' || city == ''){
+  dateInput = $("#datepicker").val();
+  if (dateInput == "" || city == "") {
     noInput();
-  }else{
-    if(dateInput < moment().format('YYYY-MM-DD')){
+  } else {
+    if (dateInput < moment().format("YYYY-MM-DD")) {
       expireDate();
-    }else{
-  searchList.push(city);
+    } else {
+      searchList.push(city);
 
-  getEvents(city);
+      getEvents(city);
+    }
   }
-}
 });
 
 //error types
@@ -218,8 +220,6 @@ submitBtn.on("click", function (event) {
 //city name spelled incorrectly
 //error types
 //resolve error of an empty array, no events that day
-
-
 
 //mlb id = 1010100
 //nba id = 1030100
