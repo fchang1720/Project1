@@ -138,9 +138,6 @@ function renderFav(){
     
 }
 
-<<<<<<< HEAD
-function removeBtn(){
-=======
 favorites.on("click", function(event){
   var element1 = $(event.target);
   if (element1.is("button")){
@@ -159,7 +156,6 @@ favorites.on("click", function(event){
 })
 
 // function removeBtn(){
->>>>>>> main
 
 }
 
