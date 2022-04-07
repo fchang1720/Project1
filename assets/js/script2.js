@@ -134,6 +134,7 @@ function renderFav(){
 
 
         li.append('<button class="delete-btn">Delete</button>')
+
         favorites.append(li);
 
 
