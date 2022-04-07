@@ -55,10 +55,10 @@ main {
 }
 
 .event-results {
-  background-color: #53f4ff;
+  background-color: #7c8483;
 
   border-radius: 1em;
-  min-height: 200px;
+  /* min-height: 200px; */
 
   /* float: right; */
 }
@@ -116,8 +116,12 @@ li a {
   body {
     align-items: flex-start;
   }
+  input {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }
-
 #favorites {
   background-color: #7c8483;
   border-radius: 1em;
