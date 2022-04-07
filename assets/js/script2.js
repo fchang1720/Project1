@@ -121,6 +121,7 @@ function renderFav(){
         var favContent = favList[j];
 
         var li = $("<h6>");
+        li.attr("data-fav-name", favContent);
         li.text(favContent + " ");
 
 
@@ -137,7 +138,28 @@ function renderFav(){
     
 }
 
+<<<<<<< HEAD
 function removeBtn(){
+=======
+favorites.on("click", function(event){
+  var element1 = $(event.target);
+  if (element1.is("button")){
+    console.log("yeah!");
+    var favName = element1.parent().attr("data-fav-name");
+    console.log(favName);
+    var index = favList.indexOf(favName);
+    console.log(index);
+    favList.splice(index, 1);
+    console.log(favList);
+    renderFav();
+    localStorage.setItem("favorites", JSON.stringify(favList));
+  }
+
+
+})
+
+// function removeBtn(){
+>>>>>>> main
 
 }
 
