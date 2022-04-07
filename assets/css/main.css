@@ -38,19 +38,20 @@ main {
 
 #appguide {
   margin: 75px;
+  background-size: cover;
   border-radius: 20px;
-  height: 300px;
+  height: auto;
   background-color: #982649;
-  color: #53f4ff;
+  color: #7c8483;
   font-family: "Graduate", cursive;
 }
 
 #Aboutus {
   margin: 75px;
   border-radius: 20px;
-  height: 300px;
+  height: auto;
   background-color: #982649;
-  color: #53f4ff;
+  color: #7c8483;
   font-family: "Graduate", cursive;
 }
 
@@ -81,7 +82,7 @@ main {
 }
 
 article {
-  margin-top: 0;
+  /* margin-top: 0; */
   background-color: #60b2e5;
   border-radius: 1em;
 }
