@@ -1,27 +1,38 @@
+body {
+  background-color: #71a2b6;
+}
+
 .nav-wrapper {
   background-color: #982649;
 }
 
 .brand-logo {
   margin-left: 3%;
-  font-family: 'Graduate', cursive;
+  font-family: "Graduate", cursive;
 }
 
 .Welcome {
   background-color: #60b2e5;
   padding: 1px;
 }
+.welcometext h5 {
+  font-family: "Graduate", cursive;
+}
 
 .welcometext {
   padding-left: 45px;
   font-weight: bold;
-
 }
 
 main {
   margin: 0%;
   padding: 3%;
   background-image: url("https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-size: cover;
+
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+
   background-size: cover;
 }
 
@@ -31,7 +42,7 @@ main {
   height: 300px;
   background-color: #982649;
   color: #53f4ff;
-  font-family: 'Graduate', cursive;
+  font-family: "Graduate", cursive;
 }
 
 #Aboutus {
@@ -40,7 +51,7 @@ main {
   height: 300px;
   background-color: #982649;
   color: #53f4ff;
-  font-family: 'Graduate', cursive;
+  font-family: "Graduate", cursive;
 }
 
 .guideabouttext {
@@ -48,7 +59,7 @@ main {
   font-size: 20px;
   color: white;
   padding: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 #submit-btn {
@@ -60,9 +71,19 @@ main {
   background-color: #7c8483;
 
   border-radius: 1em;
+  font-family: "Graduate", cursive;
   /* min-height: 200px; */
 
   /* float: right; */
+}
+.event-results button {
+  font-family: "Graduate", cursive;
+}
+
+article {
+  margin-top: 0;
+  background-color: #60b2e5;
+  border-radius: 1em;
 }
 
 #textarea1 {
@@ -96,6 +117,7 @@ li a {
   padding-bottom: 8px;
   font-weight: 500;
   font-size: 230%;
+  font-family: "Graduate", cursive;
 }
 
 .weather-data {
@@ -105,6 +127,16 @@ li a {
 
 .event-name {
   border-top: 3px solid #7c8483;
+}
+
+#favorites {
+  background-color: #7c8483;
+  border-radius: 1em;
+  font-family: "Graduate", cursive;
+}
+
+#favorites button {
+  font-family: "Graduate", cursive;
 }
 
 @media only screen and (max-width: 600px) {
@@ -123,9 +155,7 @@ li a {
     margin: 0;
     padding: 0;
   }
-}
-#favorites {
-  background-color: #7c8483;
-  border-radius: 1em;
-  font-family: 'Graduate', cursive;
+  article {
+    padding: 3%;
+  }
 }
