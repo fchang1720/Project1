@@ -16,7 +16,7 @@ body {
 }
 
 .welcometext {
- padding-left: 45px;
+  padding-left: 45px;
 }
 
 main {
@@ -60,7 +60,7 @@ main {
   border-radius: 1em;
   min-height: 200px;
 
-  float: right;
+  /* float: right; */
 }
 
 #textarea1 {
@@ -103,4 +103,22 @@ li a {
 
 .event-name {
   border-top: 3px solid #7c8483;
+}
+
+@media only screen and (max-width: 600px) {
+  #banner {
+    display: none;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  body {
+    align-items: flex-start;
+  }
+}
+
+#favorites {
+  background-color: #7c8483;
+  border-radius: 1em;
 }
