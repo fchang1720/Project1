@@ -125,6 +125,7 @@ function getEvents(city) {
     });
 }
 function renderFav(){
+    $('#favorites').children('h6').remove();
     favorites.innerHTML = "";
     for (var j = 0; j < favList.length; j++) {
         var favContent = favList[j];
