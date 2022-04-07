@@ -143,9 +143,13 @@ li a {
   #banner {
     display: none;
   }
+  nav {
+    display: none;
+  }
   main {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   body {
     align-items: flex-start;
