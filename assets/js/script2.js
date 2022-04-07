@@ -5,7 +5,7 @@ var APIKey = "6d7bc9f4afbf01277e0e2187714f7bc1";
 var searchResults = document.querySelector(".search-list");
 var eventResults = $("#event-results");
 var submitBtn = $("#submit-btn");
-var favorites = document.querySelector("#favorites")
+var favorites = $("#favorites");
 var favList = [];
 
 function getEvents(city) {
@@ -57,14 +57,16 @@ function getEvents(city) {
             favorite.text("Favorite");
             link.text("Buy Tickets");   
             eventName.text(data.events[i].performers[0].name +"-"+ date.text());
-            eventName.attr("data-eventName", data.events[i].performers[0].name +"-"+ date.text())
+            // eventName.attr("data-eventName", data.events[i].performers[0].name +"-"+ date.text())
+            favorite.attr("data-eventName", data.events[i].performers[0].name +"-"+ date.text())
             // to make favorite button work, added to button instead line above.
             eventResults.append(eventName);
 
             eventResults.append(favorite);
             eventResults.append(link);
 
-            eventName.on("click", function (event) {
+            // eventName.on("click", function (event) {
+              favorite.on("click", function (event) {
               event.preventDefault();
 
               var element = event.target;
@@ -75,6 +77,7 @@ function getEvents(city) {
               console.log(favList);
               
               localStorage.setItem("favorites", JSON.stringify(favList));
+              getFav();
               }
             });
           }
@@ -83,26 +86,34 @@ function getEvents(city) {
 }
 function renderFav(){
     favorites.innerHTML = "";
-    for (var j = 0; j < favList[j]; j++) {
+    for (var j = 0; j < favList.length; j++) {
         var favContent = favList[j];
 
-        var li = document.createElement("button");
-        li.textContent = favContent;
-        li.style.width = '100%';
-        li.style.marginBottom = '5px';
-        favorites.appendChild(li);
-        console.log(favorites);
+        var li = $("<h6>");
+        li.text(favContent + " ");
+
+
+        li.append('<button class="delete-btn">Delete</button>')
+        favorites.append(li);
+
+
     }
     
 }
-renderFav();
+
+// function removeBtn(){
+
+// }
+
+
 function getFav(){
-    var favs = JSON.parse(localStorage.get("favorites"));
-    if (favs !== null) {
-        favList = favs;
+    var favors = JSON.parse(localStorage.getItem("favorites"));
+    if (favors !== null) {
+        favList = favors;
     }
     renderFav();
 }
+getFav();
 submitBtn.on("click", function (event) {
   event.preventDefault();
   var city = userInput.val();
