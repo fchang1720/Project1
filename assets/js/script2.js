@@ -46,24 +46,17 @@ function getEvents(city) {
           "&datetime_local.gte=" + dateInput + "&datetime_local.lt=" + endDate +
            "&client_id=" +
           clientID;
-    //   var url =
-    //     "https://api.seatgeek.com/2/events?" +
-    //     "lat=" +
-    //     lat +
-    //     "&lon=" +
-    //     lon +
-    //     "&per_page=10&taxonomies.name=sports&datetime_utc.gte=2022-04-05&client_id=" +
-    //     clientID;
 
-        fetch(url)
-        .then(function (response) {
+
+          fetch(url)
+          .then(function (response) {
           return response.json();
-        })
-        .then(function (data) {
-          eventResults.show();
-          console.log(data);
-          eventResults.text('');
-          eventResults.children().remove();
+          })
+          .then(function (data) {
+            eventResults.show();
+            console.log(data);
+            eventResults.text('');
+            eventResults.children().remove();
           if(data.events.length == 0)
           {
               noEvents();
@@ -85,10 +78,7 @@ function getEvents(city) {
             link.attr("href", data.events[i].url);
             date.text([month, day, year].join("/"));
             favorite.text("Favorite");
-            // link.text("Buy Tickets");   
-            // eventName.text(data.events[i].performers[0].name +"-"+ date.text());
-            // eventName.attr("data-eventName", data.events[i].performers[0].name +"-"+ date.text())
-            // favorite.attr("data-eventName", data.events[i].performers[0].name +"-"+ date.text())
+
             link.text("Buy Tickets");
             eventName.text(
               data.events[i].short_title + "-" + date.text()
@@ -97,14 +87,14 @@ function getEvents(city) {
               "data-eventName",
               data.events[i].short_title + "-" + date.text()
             );
-            // to make favorite button work, added to button instead line above.
+
             eventResults.append(eventName);
 
             eventResults.append(favorite);
             eventResults.append(link);
 
-            // eventName.on("click", function (event) {
-              favorite.on("click", function (event) {
+
+            favorite.on("click", function (event) {
               event.preventDefault();
 
               var element = event.target;
@@ -136,13 +126,21 @@ function renderFav(){
 
 
         li.append('<button class="delete-btn">Delete</button>')
+        var deleteBtn = $(".delete-btn")
+        // deleteBtn.attr("local-storage-value", )
+        
+
         favorites.append(li);
+        
 
 
     }
     
 }
 
+<<<<<<< HEAD
+function removeBtn(){
+=======
 favorites.on("click", function(event){
   var element1 = $(event.target);
   if (element1.is("button")){
@@ -161,8 +159,9 @@ favorites.on("click", function(event){
 })
 
 // function removeBtn(){
+>>>>>>> main
 
-// }
+}
 
 
 function getFav(){
@@ -207,7 +206,7 @@ submitBtn.on("click", function (event) {
       expireDate();
     }else{
   searchList.push(city);
-  // localStorage.setItem("Search List", JSON.stringify(searchList));
+
   getEvents(city);
   }
 }
