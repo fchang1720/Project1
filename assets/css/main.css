@@ -132,8 +132,13 @@ li a {
 
 #favorites {
   background-color: #7c8483;
-  border-radius: 1em;
+  text-align: center;
   font-family: "Graduate", cursive;
+  /* padding-bottom: 1%; */
+}
+
+#favorites h1 {
+  font-size: 45px;
 }
 
 #favorites button {
